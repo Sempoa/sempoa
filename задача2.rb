@@ -1,4 +1,4 @@
-cart = {}
+goods = {}
 sum = 0
 loop do
   print "Название товара (напишите stop по окончанию покупок): "
@@ -8,12 +8,10 @@ loop do
   cost = gets.to_f
   print "Количество: "
   amount = gets.to_f
-  cart[item] = { cost: cost, amount: amount, item_sum: cost * amount }
+  goods[item] = { cost: cost, amount: amount, item_sum: cost * amount }
 end
 puts "Ваши покупки: "
-cart.each  do |item_name, prop|
+goods.each { |item_name, prop|
   puts "#{item_name}, price: #{prop[:cost]}, total: #{prop[:item_sum]}"
-  sum += prop[:item_sum]
-end
-
-puts "Итог: ₽#{sum} "
+  sum += prop[:item_sum] }
+puts "Итог: ₽#{sum.round(2)} "
